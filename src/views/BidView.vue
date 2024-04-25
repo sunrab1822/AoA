@@ -19,7 +19,7 @@
 
       <div class="mb-3">
         <label for="offer" class="form-label">Offer (in HUF):</label>
-        <input type="number" class="form-control" id="offer" v-model="priceraw">
+        <input type="number" class="form-control" id="offer" v-model="model.price">
       </div>
 
       <div class="mb-3">
@@ -38,7 +38,7 @@
       </div>
     </div>
 
-    <div class="modal fade" id="successfullBidModal" tabindex="-1">
+    <div  class="modal fade" id="successfullBidModal" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header mx-auto">
@@ -59,22 +59,29 @@ import {ref} from 'vue'
 import dataservice from '../services/dataservice';
 
 
+
 const route = useRoute()
 const imageUrl = ref(route.query.imageUrl)
 const id = ref(route.query.id)
 const errorMessage = ref("")
-const priceraw = ref(0)
 const model = ref({
   paintingId: id.value,
   email: "",
-  price: 123123123123112300
+  price: 0
 })
+
+
 
 const send = () => {
   console.log(model.value);
   dataservice.saveBid(model.value).then((result) => {
-    console.log(result);
-    errorMessage.value = result
+
+    if (result){
+      errorMessage.value = result
+    }
+    else{
+    
+    }
   })
 }
 //modal fade show
