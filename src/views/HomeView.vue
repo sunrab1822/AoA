@@ -68,7 +68,7 @@ const valaszto = () => {
                         </p>
                     </div>
                     <div class="card-footer text-center">
-                        <RouterLink :to="{path: '/bid', query:{imageUrl:painting.imageUrl,id:painting.id}}" class="btn btn-primary">Bid</RouterLink>
+                        <RouterLink :to="{path: '/bidding', query:{imageUrl:painting.imageUrl,id:painting.id}}" class="btn btn-primary">Bid</RouterLink>
                     </div>
                 </div>
             </div>

@@ -54,13 +54,17 @@
 </template>
 
 <script setup>
-import { RouterLink, useRoute } from 'vue-router';
+import { RouterLink, useRoute, useRouter } from 'vue-router';
 import {ref} from 'vue'
 import dataservice from '../services/dataservice';
 
 
 
 const route = useRoute()
+const router = useRouter()
+if(route.query.imageUrl == null){
+  router.push("/")
+}
 const imageUrl = ref(route.query.imageUrl)
 const id = ref(route.query.id)
 const errorMessage = ref("")
@@ -69,6 +73,7 @@ const model = ref({
   email: "",
   price: 0
 })
+
 
 const modal = ref(false)
 

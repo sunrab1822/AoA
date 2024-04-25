@@ -11,7 +11,7 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: "/bid",
+      path: "/bidding",
       name: "bid",
       component: BidView,
     },
