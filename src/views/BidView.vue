@@ -38,7 +38,7 @@
       </div>
     </div>
 
-    <div  class="modal fade" id="successfullBidModal" tabindex="-1">
+    <div  class="modal fade" :class="{'d-block':modal, 'show':modal}" id="successfullBidModal" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header mx-auto">
@@ -70,7 +70,7 @@ const model = ref({
   price: 0
 })
 
-
+const modal = ref(false)
 
 const send = () => {
   console.log(model.value);
@@ -80,10 +80,10 @@ const send = () => {
       errorMessage.value = result
     }
     else{
-    
+      modal.value = true
     }
   })
 }
-//modal fade show
+//  show d-block
 
 </script>
